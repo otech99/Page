@@ -1,25 +1,29 @@
 <!doctype html>
-<html lang="it">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Otman — Portfolio</title>
-<meta name="description" content="Portfolio di Otman, studente di ingegneria informatica.">
+<title>Otmane El Khattabi — Portfolio</title>
+<meta name="description" content="Otmane El Khattabi, Computer and Automation Engineering student at Univpm. Interests in cybersecurity, networking and data science. 3rd place worldwide, Huawei ICT Competition 2025 Network Track.">
 <style>
   :root {
-    --bg: #fafafa;
-    --fg: #111;
-    --muted: #666;
-    --line: #e5e5e5;
-    --accent: #111;
+    --bg: #ffffff;
+    --surface: #f7f7f9;
+    --fg: #14141a;
+    --muted: #61616e;
+    --line: #e8e8ee;
+    --accent: #4f46e5;
+    --accent-soft: #eef0ff;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #0e0e0e;
-      --fg: #eaeaea;
-      --muted: #888;
-      --line: #222;
-      --accent: #eaeaea;
+      --bg: #0c0c10;
+      --surface: #14141b;
+      --fg: #ececf1;
+      --muted: #9a9aa8;
+      --line: #23232e;
+      --accent: #8b93ff;
+      --accent-soft: #1b1c33;
     }
   }
   * { box-sizing: border-box; }
@@ -28,93 +32,272 @@
     margin: 0;
     background: var(--bg);
     color: var(--fg);
-    font: 16px/1.65 ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
   }
   main {
-    max-width: 640px;
+    max-width: 720px;
     margin: 0 auto;
-    padding: 72px 20px 96px;
+    padding: 80px 24px 96px;
   }
-  header { margin-bottom: 56px; }
-  h1 { font-size: 1.6rem; margin: 0 0 4px; font-weight: 600; }
+
+  /* Header */
+  header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .photo {
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 3px solid var(--bg);
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  h1 {
+    font-size: 2.1rem;
+    line-height: 1.2;
+    margin: 0 0 4px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
   .role { color: var(--muted); margin: 0; }
-  section { margin-bottom: 48px; }
+  .links { margin: 12px 0 0; display: flex; gap: 10px; flex-wrap: wrap; }
+  .links a {
+    font-size: .88rem;
+    padding: 4px 14px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    text-decoration: none;
+    color: var(--fg);
+    transition: border-color .15s, color .15s;
+  }
+  .links a:hover { border-color: var(--accent); color: var(--accent); }
+
+  .intro { font-size: 1.1rem; margin: 0 0 56px; max-width: 56ch; }
+
+  /* Sections */
+  section { margin-bottom: 56px; }
   h2 {
-    font-size: .8rem;
-    font-weight: 500;
-    letter-spacing: .12em;
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .14em;
     text-transform: uppercase;
-    color: var(--muted);
-    margin: 0 0 16px;
+    color: var(--accent);
+    margin: 0 0 20px;
   }
   p { margin: 0 0 12px; }
   a { color: var(--accent); text-underline-offset: 3px; }
-  a:hover { opacity: .65; }
+  a:hover { opacity: .8; }
   ul { list-style: none; padding: 0; margin: 0; }
-  .project {
-    padding: 14px 0;
+
+  /* Project cards */
+  .cards { display: grid; gap: 14px; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 20px 22px;
+  }
+  .card h3 { margin: 0 0 6px; font-size: 1.05rem; font-weight: 650; }
+  .card p { margin: 0 0 14px; color: var(--muted); font-size: .94rem; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tags span {
+    font-size: .76rem;
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* Timeline */
+  .row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 4px 24px;
+    padding: 18px 0;
     border-top: 1px solid var(--line);
   }
-  .project:last-child { border-bottom: 1px solid var(--line); }
-  .project h3 { margin: 0 0 2px; font-size: 1rem; font-weight: 600; }
-  .project p { margin: 0; color: var(--muted); font-size: .92rem; }
-  .skills li { display: inline; }
-  .skills li:not(:last-child)::after { content: " · "; color: var(--muted); }
-  footer { color: var(--muted); font-size: .8rem; }
+  .row:last-child { border-bottom: 1px solid var(--line); }
+  .when { color: var(--muted); font-size: .88rem; padding-top: 3px; }
+  .row h3 { margin: 0; font-size: 1.02rem; font-weight: 650; }
+  .where { color: var(--muted); font-size: .88rem; margin: 0 0 6px; }
+  .row p { margin: 0; font-size: .94rem; color: var(--muted); }
+  .row p + p { margin-top: 6px; }
+  .row .highlight { color: var(--fg); font-weight: 500; }
+
+  /* Skills */
+  .skill {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 4px 24px;
+    padding: 12px 0;
+    border-top: 1px solid var(--line);
+  }
+  .skill:last-child { border-bottom: 1px solid var(--line); }
+  dl { margin: 0; }
+  dt { color: var(--muted); font-size: .88rem; padding-top: 2px; }
+  dd { margin: 0; font-size: .95rem; }
+
+  footer { color: var(--muted); font-size: .82rem; }
+
+  @media (max-width: 560px) {
+    main { padding: 56px 20px 72px; }
+    header { flex-direction: column; align-items: flex-start; gap: 18px; }
+    h1 { font-size: 1.8rem; }
+    .row, .skill { grid-template-columns: 1fr; gap: 2px; }
+  }
 </style>
 </head>
 <body>
 <main>
   <header>
-    <h1>Otman</h1>
-    <p class="role">Studente di ingegneria informatica</p>
+    <img class="photo" src="foto.jpg" alt="Otmane El Khattabi">
+    <div>
+      <h1>Otmane El Khattabi</h1>
+      <p class="role">Computer and Automation Engineering student</p>
+      <div class="links">
+        <a href="https://github.com/otech99">GitHub</a>
+        <a href="https://www.linkedin.com/in/otmane-el-khattabi-220091240">LinkedIn</a>
+        <a href="mailto:otechmr@gmail.com">Email</a>
+      </div>
+    </div>
   </header>
 
+  <p class="intro">Student at Marche Polytechnic University (Univpm), with interests in cybersecurity, networking and data science.</p>
+
   <section>
-    <h2>Chi sono</h2>
-    <p>Studio ingegneria informatica e mi interessano sicurezza informatica, sistemi distribuiti e blockchain. Mi occupo anche di amministrazione di sistemi e infrastrutture.</p>
+    <h2>Projects</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>CertChain</h3>
+        <p>Hybrid proof of concept for issuing and verifying digital certificates. It combines a Django backend (REST API, off-chain RBAC) with Ethereum smart contracts that enforce roles through OpenZeppelin, MetaMask transaction signing, and a containerized Ganache environment.</p>
+        <div class="tags"><span>Django</span><span>Solidity</span><span>OpenZeppelin</span><span>MetaMask</span><span>Docker</span><span>Ganache</span></div>
+      </article>
+      <article class="card">
+        <h3>ZTL API</h3>
+        <p>Backend for managing fines at ZTL (limited traffic zone) gates: zones, gates, transits and violations, with PDF payment notices, role-based access (operator, gate, driver, admin) and a credit system for route usage.</p>
+        <div class="tags"><span>Node.js</span><span>TypeScript</span><span>Express</span><span>Sequelize</span><span>PostgreSQL</span><span>JWT</span><span>Jest</span></div>
+      </article>
+      <article class="card">
+        <h3>NetworkAssist</h3>
+        <p>Website built with Laravel, including the frontend and deployment on a server.</p>
+        <div class="tags"><span>Laravel</span><span>PHP</span><span>JavaScript</span><span>HTML</span><span>CSS</span></div>
+      </article>
+      <article class="card">
+        <h3>Match Maker</h3>
+        <p>App for organizing football, five-a-side and eight-a-side matches, tournaments and leagues. Built in two versions: a full Android app and a lighter cross-platform one.</p>
+        <div class="tags"><span>Kotlin</span><span>Android Studio</span><span>Flutter</span><span>Firebase</span></div>
+      </article>
+    </div>
   </section>
 
   <section>
-    <h2>Progetti</h2>
+    <h2>Experience</h2>
     <ul>
-      <li class="project">
-        <h3><a href="https://github.com/tuousername/progetto-1">Nome progetto 1</a></h3>
-        <p>Breve descrizione di cosa fa e con quali tecnologie.</p>
+      <li class="row">
+        <span class="when">2025</span>
+        <div>
+          <h3>Huawei ICT Competition — Global Final</h3>
+          <p class="where">Network Track · Shenzhen, China</p>
+          <p class="highlight">3rd place worldwide among over 150,000 participants.</p>
+          <p>Design, implementation and optimization of complex networks using Huawei technologies (routing, switching, WLAN, security) and advanced protocols such as OSPF, BGP and MPLS. Worked in an international team.</p>
+        </div>
       </li>
-      <li class="project">
-        <h3><a href="https://github.com/tuousername/progetto-2">Nome progetto 2</a></h3>
-        <p>Breve descrizione di cosa fa e con quali tecnologie.</p>
+      <li class="row">
+        <span class="when">2024</span>
+        <div>
+          <h3>Huawei Datacom HCIA</h3>
+          <p class="where">Course · Ancona</p>
+          <p>Data networking fundamentals, switching and routing, configuration and management of Huawei switches and routers, troubleshooting and performance optimization.</p>
+        </div>
       </li>
-      <li class="project">
-        <h3><a href="https://github.com/tuousername/progetto-3">Nome progetto 3</a></h3>
-        <p>Breve descrizione di cosa fa e con quali tecnologie.</p>
+      <li class="row">
+        <span class="when">2023</span>
+        <div>
+          <h3>Meccanica Mayer SRL</h3>
+          <p class="where">Mechanical worker · Castelfidardo</p>
+          <p>Technical drawing reading, metalworking, maintenance and quality control.</p>
+        </div>
       </li>
     </ul>
   </section>
 
   <section>
-    <h2>Competenze</h2>
-    <ul class="skills">
-      <li>Linux</li>
-      <li>Python</li>
-      <li>Networking</li>
-      <li>Sicurezza informatica</li>
-      <li>Sistemi distribuiti</li>
-      <li>Git</li>
+    <h2>Skills</h2>
+    <dl>
+      <div class="skill">
+        <dt>Networking</dt>
+        <dd>OSPF, BGP, MPLS, IS-IS · LAN, WLAN, WAN · Firewall, VPN · Huawei and multi-vendor routers and switches · Troubleshooting</dd>
+      </div>
+      <div class="skill">
+        <dt>Programming</dt>
+        <dd>Python, Java, C++, JavaScript, TypeScript, PHP, Kotlin, Solidity, SQL, HTML, CSS</dd>
+      </div>
+      <div class="skill">
+        <dt>Frameworks</dt>
+        <dd>Laravel, Django, Express, Flutter, Firebase</dd>
+      </div>
+      <div class="skill">
+        <dt>Tools</dt>
+        <dd>Docker, Git, Matlab, Microsoft 365, Adobe (Photoshop, Illustrator), Figma</dd>
+      </div>
+      <div class="skill">
+        <dt>Systems</dt>
+        <dd>Linux, Windows</dd>
+      </div>
+      <div class="skill">
+        <dt>Languages</dt>
+        <dd>Arabic and Italian (native), English and French (B2)</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <ul>
+      <li class="row">
+        <span class="when">2021 – present</span>
+        <div>
+          <h3>Degree in Computer and Automation Engineering</h3>
+          <p class="where">Marche Polytechnic University (Univpm) · Ancona</p>
+          <p>Thesis: security in wide area networks, BGP vulnerabilities - BGP hijacking.</p>
+        </div>
+      </li>
+      <li class="row">
+        <span class="when">2019</span>
+        <div>
+          <h3>Graphic Design training</h3>
+          <p class="where">ISIG · Khouribga, Morocco</p>
+          <p>Six months, Adobe suite and Figma.</p>
+        </div>
+      </li>
+      <li class="row">
+        <span class="when">2019</span>
+        <div>
+          <h3>Scientific High School Diploma</h3>
+          <p class="where">Phosphate High School · Khouribga, Morocco</p>
+        </div>
+      </li>
     </ul>
   </section>
 
   <section>
-    <h2>Contatti</h2>
+    <h2>Contact</h2>
     <p>
-      <a href="mailto:tua@email.it">tua@email.it</a><br>
-      <a href="https://github.com/tuousername">github.com/tuousername</a><br>
-      <a href="https://www.linkedin.com/in/tuousername">linkedin.com/in/tuousername</a>
+      <a href="mailto:otechmr@gmail.com">otechmr@gmail.com</a><br>
+      <a href="https://www.linkedin.com/in/otmane-el-khattabi-220091240">linkedin.com/in/otmane-el-khattabi-220091240</a><br>
+      <a href="https://github.com/otech99">github.com/otech99</a>
     </p>
   </section>
 
-  <footer>© 2026 Otman</footer>
+  <footer>© 2026 Otmane El Khattabi</footer>
 </main>
 </body>
 </html>
