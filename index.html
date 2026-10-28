@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Otman — Portfolio</title>
+<meta name="description" content="Portfolio di Otman, studente di ingegneria informatica.">
+<style>
+  :root {
+    --bg: #fafafa;
+    --fg: #111;
+    --muted: #666;
+    --line: #e5e5e5;
+    --accent: #111;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0e0e0e;
+      --fg: #eaeaea;
+      --muted: #888;
+      --line: #222;
+      --accent: #eaeaea;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.65 ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  main {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 72px 20px 96px;
+  }
+  header { margin-bottom: 56px; }
+  h1 { font-size: 1.6rem; margin: 0 0 4px; font-weight: 600; }
+  .role { color: var(--muted); margin: 0; }
+  section { margin-bottom: 48px; }
+  h2 {
+    font-size: .8rem;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 16px;
+  }
+  p { margin: 0 0 12px; }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:hover { opacity: .65; }
+  ul { list-style: none; padding: 0; margin: 0; }
+  .project {
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+  }
+  .project:last-child { border-bottom: 1px solid var(--line); }
+  .project h3 { margin: 0 0 2px; font-size: 1rem; font-weight: 600; }
+  .project p { margin: 0; color: var(--muted); font-size: .92rem; }
+  .skills li { display: inline; }
+  .skills li:not(:last-child)::after { content: " · "; color: var(--muted); }
+  footer { color: var(--muted); font-size: .8rem; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Otman</h1>
+    <p class="role">Studente di ingegneria informatica</p>
+  </header>
+
+  <section>
+    <h2>Chi sono</h2>
+    <p>Studio ingegneria informatica e mi interessano sicurezza informatica, sistemi distribuiti e blockchain. Mi occupo anche di amministrazione di sistemi e infrastrutture.</p>
+  </section>
+
+  <section>
+    <h2>Progetti</h2>
+    <ul>
+      <li class="project">
+        <h3><a href="https://github.com/tuousername/progetto-1">Nome progetto 1</a></h3>
+        <p>Breve descrizione di cosa fa e con quali tecnologie.</p>
+      </li>
+      <li class="project">
+        <h3><a href="https://github.com/tuousername/progetto-2">Nome progetto 2</a></h3>
+        <p>Breve descrizione di cosa fa e con quali tecnologie.</p>
+      </li>
+      <li class="project">
+        <h3><a href="https://github.com/tuousername/progetto-3">Nome progetto 3</a></h3>
+        <p>Breve descrizione di cosa fa e con quali tecnologie.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Competenze</h2>
+    <ul class="skills">
+      <li>Linux</li>
+      <li>Python</li>
+      <li>Networking</li>
+      <li>Sicurezza informatica</li>
+      <li>Sistemi distribuiti</li>
+      <li>Git</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Contatti</h2>
+    <p>
+      <a href="mailto:tua@email.it">tua@email.it</a><br>
+      <a href="https://github.com/tuousername">github.com/tuousername</a><br>
+      <a href="https://www.linkedin.com/in/tuousername">linkedin.com/in/tuousername</a>
+    </p>
+  </section>
+
+  <footer>© 2026 Otman</footer>
+</main>
+</body>
+</html>
