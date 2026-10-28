@@ -10,24 +10,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f4efe6;
-    --surface: #ebe4d6;
-    --fg: #1b1814;
-    --muted: #6b6358;
-    --line: #d6cdbd;
-    --accent: #b8431b;
+    color-scheme: dark;
+    --bg: #000000;
+    --surface: #0d0d0d;
+    --fg: #ffffff;
+    --muted: #9b9b9b;
+    --line: #262626;
+    --accent: #3ddc84;
     --serif: "Fraunces", Georgia, "Times New Roman", serif;
     --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #14120f;
-      --surface: #1d1a16;
-      --fg: #eee7da;
-      --muted: #a39a8b;
-      --line: #332e27;
-      --accent: #ec8a5b;
-    }
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -42,9 +33,8 @@
   }
   ::selection { background: var(--accent); color: var(--bg); }
   main {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 96px 32px 96px;
+    width: 100%;
+    padding: 96px clamp(16px, 6vw, 112px);
   }
 
   /* Header */
@@ -57,18 +47,17 @@
     border-bottom: 2px solid var(--fg);
   }
   .photo {
-    width: 132px;
-    height: 164px;
+    width: clamp(132px, 14vw, 200px);
+    aspect-ratio: 1;
     object-fit: cover;
-    border-radius: 2px;
-    filter: grayscale(1) contrast(1.05);
-    transition: filter .4s;
+    border-radius: 50%;
+    border: 3px solid var(--bg);
+    box-shadow: 0 0 0 2px var(--accent);
     order: 2;
   }
-  .photo:hover { filter: none; }
   h1 {
     font-family: var(--serif);
-    font-size: clamp(3rem, 9vw, 6.2rem);
+    font-size: clamp(3rem, 9vw, 8.5rem);
     font-weight: 400;
     line-height: .95;
     letter-spacing: -0.035em;
@@ -109,7 +98,7 @@
   /* Sections */
   section {
     display: grid;
-    grid-template-columns: 200px minmax(0, 1fr);
+    grid-template-columns: clamp(160px, 22vw, 340px) minmax(0, 1fr);
     gap: 0 40px;
     margin-bottom: 88px;
     counter-increment: sec;
@@ -252,7 +241,7 @@
   @media (max-width: 720px) {
     main { padding: 56px 16px 64px; }
     header { grid-template-columns: minmax(0, 1fr); }
-    .photo { order: -1; width: 96px; height: 120px; }
+    .photo { order: -1; width: 112px; }
     .intro { margin: 36px 0 64px; }
     section { grid-template-columns: minmax(0, 1fr); margin-bottom: 64px; }
     h2 { position: static; border-top: none; padding-top: 0; margin-bottom: 16px; }
